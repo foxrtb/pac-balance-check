@@ -4,7 +4,7 @@
 
 # and, if the balance changes, sends an alert email to the configured address
 
-set -x
+#set -x   #uncomment for debug
 
 pac_addresses=( PxxXXXXXXXxxxXXXYYYxxxx PxxXXXXXXXxxxXXXYYYxxxx PxxXXXXXXXxxxXXXYYYxxxx )
 
