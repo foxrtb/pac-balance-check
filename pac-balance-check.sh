@@ -45,7 +45,7 @@ while [ true ]; do
             new_formatted=$(echo "$new_balance/100000000" | bc -l | sed 's/0*$//')
 
             mail -s "PAC Transaction Alert" $email_address <<< "The balance of ${pac_addresses[$i]} has changed from $old_formatted to $new_formatted PAC!"
-
+#           /usr/local/bin/pb push "PAC balance of ${pac_addresses[$i]} has changed from $old_formatted to $new_formatted PAC!"
             pac_balances[i]=$new_balance
 
         fi
