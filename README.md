@@ -3,6 +3,10 @@ This utility script checks the balance of the configured $PAC addresses every 30
 and, if the balance changes, sends an alert email to the configured address
 
 
-configure the postfix to send mail.
-install screen and run 
+* Install and configure postfix
+* Install screen  (apt-get install screen)
+* Install bc  (apt-get install bc)
+
+* screen -S PAC
+....
 
