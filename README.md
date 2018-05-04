@@ -1,14 +1,15 @@
 # $PAC balance check
 
 This utility script checks the balance of the configured $PAC addresses every 30 minutes
-and, if the balance changes, sends an alert email to the configured address.
+and, if the balance changes, sends an alert to the configured e-mail address or PushBullet service.
+
 Best suited to run from a dedicated linux server like one masternode instance.
+
 
 ## Getting Started
 
 Notification are delivered by mail or [pushbullet application](https://www.pushbullet.com/apps)
 For **non tech-savvy** the **best option is to use the pushbullet notification**, for others be free and configure postfix to deliver mail.
-
 
 
 ### Installing
@@ -26,9 +27,13 @@ $ chmod +x pac-balance-check.sh
 
 ### Configuring
 
-
-* screen -S PAC
-....
+* edit the script
+```
+$ nano pac-balance-check.sh
+```
+> enter your pac addresses in ```pac_addresses=( xxxx xx xxx xxx )```
+> add your mail address in ```email_address='your.email@domain.com```
+>
 
 
 ### push notifications with pushbullet
