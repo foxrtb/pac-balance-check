@@ -31,9 +31,13 @@ $ chmod +x pac-balance-check.sh
 ```
 $ nano pac-balance-check.sh
 ```
-> enter your pac addresses in ```pac_addresses=( xxxx xx xxx xxx )```
-> add your mail address in ```email_address='your.email@domain.com```
->
+enter your pac addresses in ```pac_addresses=( xxxx xx xxx xxx )```
+enter your mail address in ```email_address='your.email@domain.com```
+
+*if you want pushullet notifications:
+
+comment the line 47 ``` mail -s "PAC Transaction Alert...```
+and comment out line 48 ```#           /usr/local/bin/pb push "PAC ...```
 
 
 ### push notifications with pushbullet
