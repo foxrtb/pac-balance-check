@@ -9,7 +9,7 @@ Best suited to run from a dedicated linux server. Tip: you can run this script o
 
 ## Getting Started
 
-Notification are delivered by mail or [pushbullet application](https://www.pushbullet.com/apps)
+Notifications are delivered by mail or [pushbullet application](https://www.pushbullet.com/apps)
 For **non tech-savvy** the **best option is to use the pushbullet notification**, for others be free and configure postfix to deliver mail.
 
 
