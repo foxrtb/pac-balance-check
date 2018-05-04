@@ -16,7 +16,7 @@ For **non tech-savvy** the **best option is to use the pushbullet notification**
 
 ### Installing
 
-* Install requited ubuntu packages
+* Install required Ubuntu packages
 ```
 $ sudo apt-get update && sudo apt-get install screen bc postfix python-pip -y
 $ sudo pip install pushbullet-cli
