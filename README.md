@@ -35,7 +35,7 @@ $ chmod +x pac-balance-check.sh
 ```
 $ nano pac-balance-check.sh
 ```
-enter your pac addresses in ```pac_addresses=( xxxx xx xxx xxx )```
+enter your pac addresses in ```pac_addresses=( PxxXXXXXYYYxxxx PxxXXXxxxx PxxXXXXxxxx )```
 
 enter your mail address in ```email_address='your.email@domain.com```
 
@@ -48,10 +48,31 @@ and comment **out** line 48 ```#   /usr/local/bin/pb push "PAC ...```
 
 
 
-### push notifications with PushBullet
-* install pushbullet  ($ pip install pushbullet-cli)   
-* enter your pushulet api key ($ pb set-key)
-* comment out mail and uncomment pushbulet option in the script
+### Mobile Push notifications with PushBullet
+* register/login to (https://www.pushbullet.com/)
+* install pushbullet app on your mobile
+* get the API key from http://pushbullet.com  --> account settings -> Access Tokens --> Create Access Token
+* enter the Access Token API key in the ubuntu instance
+```
+$ pb set-key
+```
+
+
+### Starting the app
+* run the application in the virtual screen console
+```
+$ screen -S PAC
+$ ./pac-balance-check.sh
+```
+* Detach from the virtual console
+```
+On your keyboard press and HODL:  <CTRL> A D
+```
+* Attach back to the virtual console
+```
+screen -x PAC
+```
+
 
 
 
