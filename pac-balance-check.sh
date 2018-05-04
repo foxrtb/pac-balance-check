@@ -1,14 +1,15 @@
 #!/bin/bash
 
 # This utility script checks the balance of the configured PAC addresses every 30 minutes
+# and, if the balance changes, sends out an mail alert of pushbulet notification.
 
-# and, if the balance changes, sends an alert email to the configured address
+#set -x   #uncomment to debug..
 
-#set -x   #uncomment for debug
-
+# Change with PAC addresses you want to monitor
 pac_addresses=( PxxXXXXXXXxxxXXXYYYxxxx PxxXXXXXXXxxxXXXYYYxxxx PxxXXXXXXXxxxXXXYYYxxxx )
 
-email_address='your.email@domain.com'
+# Change with your e-mail address
+email_address='john.foo@pacmail.com'
 
 
 # initialize balances
@@ -24,7 +25,7 @@ for (( i = 0; i < ${#pac_addresses[@]}; i++ )); do
 done
 
 
-# daemon
+# start daemon
 
 while [ true ]; do
 
@@ -44,8 +45,12 @@ while [ true ]; do
 
             new_formatted=$(echo "$new_balance/100000000" | bc -l | sed 's/0*$//')
 
+            #Comment with '#' if you want to disable e-mail
             mail -s "PAC Transaction Alert" $email_address <<< "The balance of ${pac_addresses[$i]} has changed from $old_formatted to $new_formatted PAC!"
+           
+            # Uncomment the line if you want to use pushbullet
 #           /usr/local/bin/pb push "PAC balance of ${pac_addresses[$i]} has changed from $old_formatted to $new_formatted PAC!"
+
             pac_balances[i]=$new_balance
 
         fi
