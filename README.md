@@ -9,8 +9,10 @@ Best suited to run from a dedicated linux server. Tip: you can run this script o
 
 ## Getting Started
 
-Notifications are delivered by mail or [pushbullet application](https://www.pushbullet.com/apps)
-For **non tech-savvy** the **best option is to use the pushbullet notification**, for others be free and configure postfix to deliver mail.
+Notifications are delivered by mail or [pushbullet](https://www.pushbullet.com/)
+
+The quickest option is using pushbullet notifications, and for a reliable emailing service [postfix] (https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-postfix-on-ubuntu-16-04) is recommended to be installed.
+
 
 
 
