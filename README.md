@@ -20,9 +20,12 @@ $ sudo pip install pushbullet-cli
 ```
 * Download the bash script, and make it executable
 ```
-$ wget https://path....
-chmod +x pac-balance-check.sh
+$ wget https://raw.githubusercontent.com/foxrtb/pac-balance-check/master/pac-balance-check.sh
+$ chmod +x pac-balance-check.sh
 ```
+
+### Configuring
+
 
 * screen -S PAC
 ....
