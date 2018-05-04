@@ -66,7 +66,7 @@ $ ./pac-balance-check.sh
 ```
 * Detach from the virtual console
 ```
-On your keyboard press and HODL:  <CTRL> A D
+On your keyboard press and HODL:  <CTRL> a d
 ```
 * Attach back to the virtual console
 ```
