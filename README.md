@@ -11,8 +11,9 @@ and, if the balance changes, sends an alert email to the configured address
 ....
 
 
-## push notifications with pushbullet
+### push notifications with pushbullet
 * install pushbullet  ($ pip install pushbullet-cli)   
 * enter your pushulet api key ($ pb set-key)
 * comment out mail and uncomment pushbulet option in the script
 
+### + Coming soon, native android application
