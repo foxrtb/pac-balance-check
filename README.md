@@ -32,6 +32,7 @@ $ chmod +x pac-balance-check.sh
 $ nano pac-balance-check.sh
 ```
 enter your pac addresses in ```pac_addresses=( xxxx xx xxx xxx )```
+
 enter your mail address in ```email_address='your.email@domain.com```
 
 *if you want pushullet notifications:
