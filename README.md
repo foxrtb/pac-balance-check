@@ -11,7 +11,8 @@ Best suited to run from a dedicated linux server. Tip: you can run this script o
 
 Notifications are delivered by mail or [pushbullet](https://www.pushbullet.com/)
 
-The quickest option is using pushbullet notifications, and for a reliable emailing service [postfix] (https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-postfix-on-ubuntu-16-04) is recommended to be installed.
+The quickest option is using pushbullet notifications, and for a reliable emailing service postfix is recommended to be installed.
+[postfix-setup-howto](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-postfix-on-ubuntu-16-04)
 
 
 
