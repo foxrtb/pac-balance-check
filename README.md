@@ -3,7 +3,7 @@
 This utility script checks the balance of the configured $PAC addresses every 30 minutes
 and, if the balance changes, sends an alert to the configured e-mail address or PushBullet service.
 
-Best suited to run from a dedicated linux server like one masternode instance.
+Best suited to run from a dedicated linux server. Tip: you can run this script on the same masternode instance.
 
 
 
