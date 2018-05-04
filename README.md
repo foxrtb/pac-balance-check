@@ -35,13 +35,15 @@ enter your pac addresses in ```pac_addresses=( xxxx xx xxx xxx )```
 
 enter your mail address in ```email_address='your.email@domain.com```
 
-*if you want pushullet notifications:
+**if you want pushullet notifications:**
 
 comment the line 47 ``` mail -s "PAC Transaction Alert...```
-and comment out line 48 ```#           /usr/local/bin/pb push "PAC ...```
+
+and comment **out** line 48 ```#   /usr/local/bin/pb push "PAC ...```
 
 
-### push notifications with pushbullet
+
+### push notifications with PushBullet
 * install pushbullet  ($ pip install pushbullet-cli)   
 * enter your pushulet api key ($ pb set-key)
 * comment out mail and uncomment pushbulet option in the script
