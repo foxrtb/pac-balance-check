@@ -22,7 +22,7 @@ The quickest option is using pushbullet notifications, and for a reliable emaili
 * Install required Ubuntu packages
 ```
 $ sudo apt-get update
-$ sudo apt-get curl install screen bc postfix python-pip -y
+$ sudo apt-get install curl screen bc postfix python-pip -y
 $ sudo pip install pushbullet-cli
 ```
 * Download the bash script, and make it executable
