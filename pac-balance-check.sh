@@ -4,7 +4,7 @@
 # if the balance changes in posotive, it sends out an mail alert of pushbulet notification.
 # The notification is sent to a pushullet address, or mail (postfix needs to be configured)
 
-set -x   #uncomment to debug..
+#set -x   #uncomment to debug..
 
 
 #http://explorer.pachub.io/api/addr/PJ69r7p5TutUywudVV8oynPgJuGv6p9KQY/balance/
