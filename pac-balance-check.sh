@@ -1,26 +1,32 @@
 #!/bin/bash
 
 # This utility script checks the balance of the configured PAC addresses every 30 minutes
-# and, if the balance changes, sends out an mail alert of pushbulet notification.
+# if the balance changes in posotive, it sends out an mail alert of pushbulet notification.
+# The notification is sent to a pushullet address, or mail (postfix needs to be configured)
 
-#set -x   #uncomment to debug..
+set -x   #uncomment to debug..
 
-# Change with PAC addresses you want to monitor
-pac_addresses=( PxxXXXXXXXxxxXXXYYYxxxx PxxXXXXXXXxxxXXXYYYxxxx PxxXXXXXXXxxxXXXYYYxxxx )
+
+#http://explorer.pachub.io/api/addr/PJ69r7p5TutUywudVV8oynPgJuGv6p9KQY/balance/
+
+# Change with Coin addresses you want to monitor and the MN alias
+mnAddress=( "PVDfk8QjTQ7vXQQtdZXQmcsUziyRipJztt" "PLGaQmvJm3C5c476Eeb73d4KQDcLpnXY8A" "PKQSbw8XS4RPjcAGBjAoouiVCD77d3xmkQ")
+mnAlias=("mn-1" "mn-2" "mn-3")
 
 # Change with your e-mail address
-email_address='john.foo@pacmail.com'
+email_address='john.foo@myshillcoin.com'
 
 
-# initialize balances
+# initialize balance
 
-pac_balances=()
+balance=()
 
-for (( i = 0; i < ${#pac_addresses[@]}; i++ )); do
+for (( i = 0; i < ${#mnAddress[@]}; i++ )); do
 
-     pac_balances[i]=$(curl -s  http://explorer.paccoin.io/api/addr/${pac_addresses[$i]}/balance/)
+     balance[i]=$(curl -s  http://explorer.pachub.io/api/addr/${mnAddress[$i]}/balance/)
+   
 
-    sleep 10 # respect API rate 
+    sleep 5 # respect API rate 
 
 done
 
@@ -29,33 +35,39 @@ done
 
 while [ true ]; do
 
-    sleep 1800 # only check addresses balances every 30 minutes
+    sleep 1800 # only check balance every 30 minutes
 
 
-    # check the balance of each address
+    # check the balance change of each address
 
-    for (( i = 0; i < ${#pac_addresses[@]}; i++ )); do
+    for (( i = 0; i < ${#mnAddress[@]}; i++ )); do
 
-        new_balance=$(curl -s http://explorer.paccoin.io/api/addr/${pac_addresses[$i]}/balance/)
+        new_balance=$(curl -s http://explorer.pachub.io/api/addr/${mnAddress[$i]}/balance/)
+        stakeholder=${mnAlias[$i]}
 
 
-        if [ $new_balance -ne ${pac_balances[$i]} ]; then
+        if [ $new_balance -gt ${balance[$i]} ]; then
 
-            old_formatted=$(echo "${pac_balances[$i]}/100000000" | bc -l | sed 's/0*$//')
+            old_formatted=$((${balance[$i]} / 100000000))
+            new_formatted=$(($new_balance / 100000000))
+            diff=$(($new_formatted - $old_formatted))
 
-            new_formatted=$(echo "$new_balance/100000000" | bc -l | sed 's/0*$//')
+            #Test echo output
+            echo "$stakeholder address ${mnAddress[$i]} payment received $diff total $new_formatted "
 
-            #Comment with '#' if you want to disable e-mail
-            mail -s "PAC Transaction Alert" $email_address <<< "The balance of ${pac_addresses[$i]} has changed from $old_formatted to $new_formatted PAC!"
-           
+            #Uncomment the line if you want to use e-mail
+            #mail -s "PAC Transaction Alert" $email_address <<< "$stakeholder address ${mnAddress[$i]} payment received $diff total $new_formatted"
+            
             # Uncomment the line if you want to use pushbullet
-#           /usr/local/bin/pb push "PAC balance of ${pac_addresses[$i]} has changed from $old_formatted to $new_formatted PAC!"
+            #/usr/local/bin/pb push "$stakeholder address ${mnAddress[$i]} payment received $diff total $new_formatted"
 
-            pac_balances[i]=$new_balance
+            balance[i]=$new_balance
+            
+            
 
         fi
 
-        sleep 10
+        sleep 5
 
     done
 
